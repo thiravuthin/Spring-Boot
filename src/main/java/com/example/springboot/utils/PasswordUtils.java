@@ -18,7 +18,7 @@ public class PasswordUtils {
     private static final String SECRET_KEY_ALGORITHM = "AES";
     public static String ENCRYPTION_KEY;
 
-    @Value("${password.encryption.key}")
+   // @Value("${password.encryption.key}")
     public void setEncryptionKey(String encryptionKey) {
         ENCRYPTION_KEY = encryptionKey;
     }

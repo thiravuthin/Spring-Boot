@@ -35,7 +35,7 @@ dependencies {
     //implementation 'org.springframework.boot:spring-boot-starter-security'
 
     /*oauth2*/
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:3.1.4'
 
     /*Send mail*/
     implementation 'org.springframework.boot:spring-boot-starter-mail'
