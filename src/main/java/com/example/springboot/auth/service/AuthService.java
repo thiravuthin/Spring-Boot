@@ -4,5 +4,5 @@ import com.example.springboot.auth.payload.SignupRequest;
 
 public interface AuthService {
 
-    Object signUp(SignupRequest payload);
+    void signup(SignupRequest payload);
 }

@@ -5,7 +5,6 @@ import com.example.springboot.auth.service.AuthService;
 import com.example.springboot.common.controller.BestResponseController;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.query.sql.internal.ParameterRecognizerImpl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,7 @@ public class AuthController extends BestResponseController {
     private final AuthService authService;
     @PostMapping("/signup")
     public Object singUp(@RequestBody @Valid SignupRequest payload){
-        authService.signUp(payload);
+        authService.signup(payload);
         return ok();
     }
 

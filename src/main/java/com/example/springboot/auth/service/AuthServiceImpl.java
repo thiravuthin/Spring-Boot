@@ -6,24 +6,34 @@ import com.example.springboot.exception.BusinessException;
 import com.example.springboot.utils.PasswordUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.prefs.BackingStoreException;
 
 @Service
 @RequiredArgsConstructor
-public class AuthServiceImpl implements AuthService{
+public class AuthServiceImpl implements AuthService {
 
     //@Transactional /* save */
     @Override
-    public Object signUp(SignupRequest payload) {
-    /* Payload Must Be encrypt */
+    public void signup(SignupRequest payload) {
+
+        /* Payload Must Be encrypt */
         String securityCode, securityKey, phoneNumber;
         try {
             securityKey = PasswordUtils.decrypt(payload.getSecurityKey());
-        }catch (Exception e){
-            throw new BusinessException(StatusCode.SUCCESS);
+        } catch (Exception e) {
+            throw new BusinessException(StatusCode.SECURITY_KEY_MUST_BE_ENCRYPT);
         }
-        return null;
+        try {
+            securityCode = PasswordUtils.decrypt(payload.getCityCode());
+        } catch (Exception e) {
+            throw new BusinessException(StatusCode.SECURITY_CODE_MUST_BE_ENCRYPTED);
+        }
+        try {
+            phoneNumber = PasswordUtils.decrypt(payload.getPhonenumber());
+        } catch (Exception e) {
+            throw new BusinessException(StatusCode.PHONE_NUMBER_INVALID);
+        }
+
+        /* check security code expired*/
+
     }
 }

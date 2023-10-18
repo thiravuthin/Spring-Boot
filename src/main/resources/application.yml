@@ -19,6 +19,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
   security:
     oauth2:
       client:
@@ -26,9 +27,10 @@ spring:
           github:
             client-id: 880843d95193a2973a14
             client-secret: 47317dbf28a9daf96878123158edeab9affd5868
-
-#            client-id: 880843d95193a2973a14
-#            client-secret: 47317dbf28a9daf96878123158edeab9affd5868
 logging:
   level:
     org.springframework.security: trace
+
+password:
+  encryption:
+    key: key
