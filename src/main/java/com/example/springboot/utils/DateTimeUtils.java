@@ -1,5 +1,7 @@
 package com.example.springboot.utils;
 
+import org.springframework.lang.NonNull;
+
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,9 +16,12 @@ public class DateTimeUtils {
     public static LocalDateTime ictNow() {
         return LocalDateTime.now(clock);
     }
+    public static LocalDateTime parseDateTime(@NonNull String dateTime) {
+        return LocalDateTime.parse(dateTime, VA_FORMATTER_DTM14);
+    }
 
     public static void main(String[] args) {
-//        System.err.println(LocalDateTime.parse("2023-09-21").format());
+        System.err.println(DateTimeUtils.VA_PATTERN_DTM14);
     }
 
 }

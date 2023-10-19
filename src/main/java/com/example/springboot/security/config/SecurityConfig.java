@@ -1,4 +1,4 @@
-package com.example.springboot.config;
+package com.example.springboot.security.config;
 
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/").permitAll();
                     auth.anyRequest().authenticated();
                 })
-                .oauth2Login(withDefaults())
+                //.oauth2Login(withDefaults())
                 .formLogin(withDefaults())
                 .build();
     }

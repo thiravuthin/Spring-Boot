@@ -1,6 +1,6 @@
-package com.example.springboot.jpa.oneToMany;
+package com.example.springboot.feature.jpa.oneToMany;
 
-import com.example.springboot.jpa.manyToOne.DeclarationDetail;
+import com.example.springboot.feature.jpa.manyToOne.DeclarationDetail;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

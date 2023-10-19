@@ -21,4 +21,5 @@ public class AuthController extends BestResponseController {
         return ok();
     }
 
+
 }

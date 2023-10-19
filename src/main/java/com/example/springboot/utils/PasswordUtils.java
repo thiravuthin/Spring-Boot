@@ -20,22 +20,12 @@ public class PasswordUtils {
     private static final String SECRET_KEY_ALGORITHM = "AES";
     public static String ENCRYPTION_KEY;
 
-    public static String decrypt(String encryptedText) throws Exception {
-
-        byte[] encrypted = Base64.getDecoder().decode(encryptedText);
-
-        Cipher cipher = prepareAndInitCipher(Cipher.DECRYPT_MODE);
-
-        byte[] original = cipher.doFinal(encrypted);
-        return new String(original);
-    }
     @Value("${password.encryption.key}")
     public void setEncryptionKey(String encryptionKey) {
         ENCRYPTION_KEY = encryptionKey;
     }
 
     private static Cipher prepareAndInitCipher(int encryptionMode) throws Exception {
-
         byte[] secretKey = getKey(ENCRYPTION_KEY);
         SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey, SECRET_KEY_ALGORITHM);
 
@@ -52,5 +42,35 @@ public class PasswordUtils {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         return digest.digest(originalKey.getBytes());
     }
+
+    public static String decrypt(String encryptedText) throws Exception {
+
+        byte[] encrypted = Base64.getDecoder().decode(encryptedText);
+
+        Cipher cipher = prepareAndInitCipher(Cipher.DECRYPT_MODE);
+
+        byte[] original = cipher.doFinal(encrypted);
+        return new String(original);
+    }
+
+    public static String encrypt(String plainText) {
+        try {
+
+            byte[] dataBytes = plainText.getBytes();
+            int plaintextLength = dataBytes.length;
+            byte[] plaintext = new byte[plaintextLength];
+            System.arraycopy(dataBytes, 0, plaintext, 0, dataBytes.length);
+
+            Cipher cipher = prepareAndInitCipher(Cipher.ENCRYPT_MODE);
+
+            byte[] encrypted = cipher.doFinal(plaintext);
+            return new String(Base64.getEncoder().encode(encrypted));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }

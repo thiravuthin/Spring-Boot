@@ -22,29 +22,41 @@ repositories {
 }
 
 dependencies {
+
+    /|*** Database ***|/
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
-    annotationProcessor 'org.projectlombok:lombok'
+
+    /|*** Web ***|/
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    /|*** Utils ***|/
+    /*StringUtils*/
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    /*lombok*/
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    /*Devtool*/
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    /|*** Validation ***|/
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    /|*** Security ***|/
     /*spring-security*/
     //testImplementation 'org.springframework.security:spring-security-test'
     //implementation 'org.springframework.boot:spring-boot-starter-security'
+    /*OAuth2 Client*/
+    //implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    /****** OAuth2 Server *********/
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
-    /*oauth2*/
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:3.1.4'
-
+    /|*** Service ***|/
+    /*phone number*/
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.11'
     /*Send mail*/
     implementation 'org.springframework.boot:spring-boot-starter-mail'
-    /*thymeleaf*/
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    /*validation*/
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-
-
 
 }
 
