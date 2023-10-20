@@ -1,4 +1,4 @@
-package com.example.springboot.auth.domain;
+package com.example.springboot.feature.auth.domain;
 
 
 import com.example.springboot.common.domain.UpdatableEntity;
@@ -42,8 +42,12 @@ public class UserInfo extends UpdatableEntity {
    // @Convert(converter = YesOrNo.Converter.class)
     private YesOrNo activeYn;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COMP_ID")
+    private SellerCompanyInfo sellerCompanyInfo;
+
     @Builder
-    public UserInfo(Long id, String userId, String userName, String userPassword, String userRole, String telephone, String userEmail, YesOrNo activeYn) {
+    public UserInfo(Long id, String userId, String userName, String userPassword, String userRole, String telephone, String userEmail, YesOrNo activeYn, SellerCompanyInfo sellerCompanyInfo) {
         this.id = id;
         this.userId = userId;
         this.userName = userName;
@@ -52,5 +56,6 @@ public class UserInfo extends UpdatableEntity {
         this.telephone = telephone;
         this.userEmail = userEmail;
         this.activeYn = activeYn;
+        this.sellerCompanyInfo = sellerCompanyInfo;
     }
 }
