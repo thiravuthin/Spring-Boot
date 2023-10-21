@@ -3,7 +3,6 @@
 * Filter chain      => 
 * DispactherServlet =>
 ---
-* 
 
 ## [How Spring Security Work?]()
   - dfdf
