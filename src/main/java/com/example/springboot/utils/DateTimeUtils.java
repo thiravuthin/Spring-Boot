@@ -9,8 +9,9 @@ import java.util.TimeZone;
 
 public class DateTimeUtils {
     private static final String VA_PATTERN_DTM14 = "yyyyMMddHHmmss";
+    private static final String VA_PATTERN_DATE8 = "yyyyMMdd";
 
-
+    public static final DateTimeFormatter VA_FORMATTER_DATE8 = DateTimeFormatter.ofPattern(VA_PATTERN_DATE8);
     public static final DateTimeFormatter VA_FORMATTER_DTM14 = DateTimeFormatter.ofPattern(VA_PATTERN_DTM14);
     public static final Clock clock = Clock.system(TimeZone.getDefault().toZoneId());
     public static LocalDateTime ictNow() {

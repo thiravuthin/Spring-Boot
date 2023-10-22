@@ -1,4 +1,4 @@
-package com.example.springboot.auth.payload;
+package com.example.springboot.feature.auth.payload;
 
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
