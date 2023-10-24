@@ -1,4 +1,27 @@
 # [SPRING SECURITY]()
+
+*  => In Memory User
+*  => Database
+*  => jwt
+
+### [ Some keys word ]()
+*   Authentication   : ការផ្ទៀងផ្ទាត់ភាពត្រឺមត្រូវ
+*   authorization    : ការអនុញ្ញាត្ត = access control = ការគ្រប់គ្រងការចូលប្រើ
+*   Authenticated    : 
+*   GrantedAuthority : 
+---
+
+### [ Some Method with Spring Security ]()
+*   [ HttpSecurity]()          : Define endpoint which user/admin... can access?
+*   [ AuthenticationFilter]()  :
+*   [ AuthenticationManager]() :
+*   [ AuthenticationProvider]():
+    - UserDetails Service
+    - Password Encoder
+*   [ UserDetail]()            : Store information of user
+*   [ UserDetailService]()     : Load User from DB
+---
+
 * [`AuthenticationProvider`]: 
   - UserDetailService:
   - Password Encoder:
@@ -6,14 +29,12 @@
 * GrantedAuthority : What allow user to use
   - Authority: Action [ write, read, delete , excute ]
   - Roles: [ Admin, Manager, client, visitor ]
-* 
 ---
 
 ##  [ SpringFramework Security Core]()
 ### [UserDetails]()
 *   UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 ### GrantedAuthority:
-
 ---
 
 ## [How Spring Security Work?]()
@@ -49,10 +70,10 @@
 
   
 key concepts and keywords that you should be familiar with. Here's a list of important terms related to Spring Boot Security:
-* **Authentication**:
+* **[Authentication]()**:
   - `Principal`: Represents the currently authenticated user.
   - `Credentials`: The information used to verify the identity of a user, such as a password.
-* **Authorization**:
+* **[Authorization]()**:
   - `Roles and Authorities`: Roles are typically associated with broad categories of access, while authorities are more fine-grained permissions.
   - `Granted Authority`: Represents a permission or authority granted to a principal.
 * **Security Configuration**:
@@ -70,12 +91,12 @@ key concepts and keywords that you should be familiar with. Here's a list of imp
   - `@PreAuthorize, @PostAuthorize`: Provide expression-based access control.
 
 * **Password Encryption**:
-  PasswordEncoder: Interface for encoding and verifying passwords.
-  BCryptPasswordEncoder, Pbkdf2PasswordEncoder: Implementations of PasswordEncoder using different algorithms.
+  - `PasswordEncoder`: Interface for encoding and verifying passwords.
+  - `BCryptPasswordEncoder`, Pbkdf2PasswordEncoder: Implementations of PasswordEncoder using different algorithms.
 
 * **Session Management**:
-  Concurrent Session Control: Limiting the number of active sessions per user.
-  SessionRegistry: Keeps track of all active sessions.
+  `Concurrent Session Control`: Limiting the number of active sessions per user.
+  `SessionRegistry`: Keeps track of all active sessions.
 
 * **OAuth 2.0**:
   @EnableOAuth2Sso: Enables OAuth 2.0 Single Sign-On (SSO) in a Spring Boot application.

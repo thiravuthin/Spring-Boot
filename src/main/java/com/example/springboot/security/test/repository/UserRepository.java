@@ -1,6 +1,6 @@
-package com.example.springboot.security.repository;
+package com.example.springboot.security.test.repository;
 
-import com.example.springboot.security.domain.Users;
+import com.example.springboot.security.test.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

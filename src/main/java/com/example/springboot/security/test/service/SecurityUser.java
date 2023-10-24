@@ -1,9 +1,7 @@
-package com.example.springboot.security.service;
+package com.example.springboot.security.test.service;
 
-import com.example.springboot.security.domain.Users;
+import com.example.springboot.security.test.domain.Users;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

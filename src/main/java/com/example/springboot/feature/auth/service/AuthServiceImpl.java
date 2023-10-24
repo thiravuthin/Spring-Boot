@@ -4,6 +4,7 @@ import com.example.springboot.enums.UserRole;
 import com.example.springboot.enums.YesOrNo;
 import com.example.springboot.feature.auth.domain.SellerCompanyInfo;
 import com.example.springboot.feature.auth.domain.UserInfo;
+import com.example.springboot.feature.auth.payload.AuthRequest;
 import com.example.springboot.feature.auth.payload.SignupRequest;
 import com.example.springboot.feature.auth.repository.CityRepository;
 import com.example.springboot.feature.auth.repository.NationalRepository;
@@ -129,6 +130,11 @@ public class AuthServiceImpl implements AuthService {
                 //.deleteYn(YesOrNo.NO)
                 .build();
         userInfoRepository.save(userInfo);
+
+    }
+
+    @Override
+    public void login(AuthRequest payload) {
 
     }
 }

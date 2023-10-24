@@ -1,4 +1,4 @@
-package com.example.springboot.security.domain;
+package com.example.springboot.security.test.domain;
 
 import jakarta.persistence.*;
 import lombok.Builder;
