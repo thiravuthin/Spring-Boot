@@ -16,8 +16,8 @@
 *   [ AuthenticationFilter]()  :
 *   [ AuthenticationManager]() :
 *   [ AuthenticationProvider]():
-    - UserDetails Service
-    - Password Encoder
+      - UserDetails Service
+      - Password Encoder
 *   [ UserDetail]()            : Store information of user
 *   [ UserDetailService]()     : Load User from DB
 ---
@@ -125,3 +125,43 @@ key concepts and keywords that you should be familiar with. Here's a list of imp
 security.user: Default user properties.
 security.basic: Basic authentication properties.
 security.oauth2: OAuth 2.0 client and resource properties.
+---
+*************************** ( Spring Security : Laur Spilca ) *****************************
+---
+##  [ Lesson1 ]( )
+*   [ App-Level Security]()
+    - Authentication 
+    - Authorization
+*   [ Authorization]()
+    - GratedAuthority => Authority => Have ( read, Write , delete , change , ....)
+    - Role                         => Are  ( user, manager, admin, client, someone ,..... )
+*   [ Authentication Type ](KineOfSpringSecurity)
+    - Http Basic ( default basic of spring security )
+    - CSRT
+    - JWT ( OAuth2 )
+    - .....
+*   [ Password]()
+    - Encoding       => no key ( )
+      - 
+    - Encryption     => has key ( )
+      - 
+    - Hash function  => no key ( )
+      - 
+*   [ package springframework.security.core.userdetails]()
+    - `interface UserDetailsService`
+      - func => UserDetails : loadUserByUsername
+*   [ package springframework.security.crypto.password]()
+    - `interface PasswordEncoder`
+       - func => encode
+       - func => matches
+       - func => upgradeEncoding
+---
+
+# Class 
+* SecurityConfig
+  - Bean => UserDetailsService : LoadUserByUsername
+  - Bean => PasswordEncoder    : 
+---
+
+## [Lesson 2]()
+*  

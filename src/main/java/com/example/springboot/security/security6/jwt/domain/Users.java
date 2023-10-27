@@ -1,30 +1,49 @@
-package com.example.springboot.security.test.service;
+package com.example.springboot.security.security6.jwt.domain;
 
-import com.example.springboot.security.test.domain.Users;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
 
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
-public class SecurityUser implements UserDetails {
+@Builder
+public class Users implements UserDetails {
 
-    private final Users user;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role roles;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "read");
+        return List.of(new SimpleGrantedAuthority(roles.name()));
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getUserName();
+        return email;
     }
 
     @Override

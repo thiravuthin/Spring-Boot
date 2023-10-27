@@ -1,4 +1,7 @@
 spring:
+  output:
+    ansi:
+      enabled: always
   datasource:
     url: jdbc:postgresql://localhost:5432/SpringBoot
     password: vuthin
@@ -19,6 +22,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+
+
+
 
 #  security:
 #    oauth2:
