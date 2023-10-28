@@ -1,5 +1,6 @@
 package com.example.springboot.feature.auth.controller;
 
+import com.example.springboot.feature.auth.payload.AuthRequest;
 import com.example.springboot.feature.auth.payload.SignupRequest;
 import com.example.springboot.feature.auth.service.AuthService;
 import com.example.springboot.common.controller.BestResponseController;
@@ -20,6 +21,12 @@ public class AuthController extends BestResponseController {
     @PostMapping("/signup")
     public Object singUp(@RequestBody @Valid SignupRequest payload) throws NoSuchAlgorithmException {
         authService.signup(payload);
+        return ok();
+    }
+
+    @PostMapping("/login")
+    public Object login(@RequestBody @Valid AuthRequest payload){
+        authService.login(payload);
         return ok();
     }
 

@@ -27,9 +27,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
 
+
     /|*** Web ***|/
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 
     /|*** Utils ***|/
     /*StringUtils*/
@@ -40,17 +42,20 @@ dependencies {
     /*Devtool*/
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+
     /|*** Validation ***|/
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+
     /|*** Security ***|/
     /*spring-security*/
-    //testImplementation 'org.springframework.security:spring-security-test'
-    //implementation 'org.springframework.boot:spring-boot-starter-security'
+//    testImplementation 'org.springframework.security:spring-security-test'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
     /*OAuth2 Client*/
     //implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     /****** OAuth2 Server *********/
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
 
     /|*** Service ***|/
     /*phone number*/
