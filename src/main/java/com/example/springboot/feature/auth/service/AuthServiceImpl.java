@@ -131,6 +131,8 @@ public class AuthServiceImpl implements AuthService {
                 .build();
         userInfoRepository.save(userInfo);
 
+
+
     }
 
     @Override

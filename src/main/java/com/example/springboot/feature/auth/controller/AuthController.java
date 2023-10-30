@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 public class AuthController extends BestResponseController {
     private final AuthService authService;
     @PostMapping("/signup")
-    public Object singUp(@RequestBody @Valid SignupRequest payload) throws NoSuchAlgorithmException {
+    public Object singUp(@RequestBody @Valid SignupRequest payload) throws Throwable {
         authService.signup(payload);
         return ok();
     }

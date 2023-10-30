@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 
 public interface AuthService {
 
-    void signup(SignupRequest payload) throws NoSuchAlgorithmException;
+    void signup(SignupRequest payload) throws Throwable;
 
     void login(AuthRequest payload);
 }
