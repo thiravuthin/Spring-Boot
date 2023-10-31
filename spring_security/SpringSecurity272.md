@@ -17,6 +17,5 @@
 
 # [Step3]()
 * class Config 
-  - Bean => 
   - Bean => SecurityFilterChain( `HttpSecurity` )
 * yml => secret key
