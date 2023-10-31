@@ -17,8 +17,8 @@ public enum StatusCode {
     USER_ID_EXIST("User Id exist",401 ),
     CURRENT_PASSWORD_MUST_BE_ENCRYPTED("Current password must be encrypt",500 ),
     NATIONAL_NOT_FOUND("National not found!",500 ),
-    CITY_NOT_FOUND("City not found!",500 );
-
+    CITY_NOT_FOUND("City not found!",500 ),
+   UNAUTHORIZED("Unauthorized", 500);
     private final String message;
     private final int code;
 }

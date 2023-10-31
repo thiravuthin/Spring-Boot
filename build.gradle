@@ -49,12 +49,12 @@ dependencies {
 
     /|*** Security ***|/
     /*spring-security*/
-//    testImplementation 'org.springframework.security:spring-security-test'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     /*OAuth2 Client*/
     //implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     /****** OAuth2 Server *********/
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    //implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 
     /|*** Service ***|/

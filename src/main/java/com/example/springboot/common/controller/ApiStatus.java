@@ -9,6 +9,10 @@ import lombok.*;
 public class ApiStatus {
     private int code;
     private String message;
+
+    public ApiStatus(StatusCode statusCode) {
+    }
+
    /* @Builder
     public ApiStatus(int code, String message) {
         this.code = code;
