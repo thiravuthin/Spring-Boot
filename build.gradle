@@ -25,6 +25,7 @@ dependencies {
 
     /|*** Database ***|/
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.testng:testng:7.1.0'
     runtimeOnly 'org.postgresql:postgresql'
 
 
@@ -54,7 +55,7 @@ dependencies {
     /*OAuth2 Client*/
     //implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     /****** OAuth2 Server *********/
-    //implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 
     /|*** Service ***|/
@@ -62,6 +63,13 @@ dependencies {
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.11'
     /*Send mail*/
     implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    /|*jwt*|/
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation  'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation  'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+
 
 }
 

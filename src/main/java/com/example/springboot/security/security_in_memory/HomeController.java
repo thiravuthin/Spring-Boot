@@ -1,11 +1,11 @@
-package com.example.springboot.controller;
+package com.example.springboot.security.security_in_memory;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
-    @GetMapping("/")
+    @GetMapping("/home")
     public String test() {
         return "home";
     }

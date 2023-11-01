@@ -1,12 +1,9 @@
-package com.example.springboot.security.config;
+package com.example.springboot.security.security_in_memory;
 
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,14 +11,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
-@RequiredArgsConstructor
-public class SecurityConfig {
+//@EnableWebSecurity
+//@Configuration
+public class InMemorySecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    /**
+     * @UserDetailsService => Store users.
+     */
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -29,7 +29,7 @@ public class SecurityConfig {
         var user1 = User
                 .withUsername("vuthin")
                 .password(passwordEncoder().encode("123"))
-                .roles("ADMIN")
+                .roles("MANAGER")
                 .build();
 
         var user2 = User
@@ -38,29 +38,33 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
+        var user3 = User
+                .withUsername("dara")
+                .password(passwordEncoder().encode("123"))
+                .roles("USER")
+                .build();
+
         userIM.createUser(user1);
         userIM.createUser(user2);
+        userIM.createUser(user3);
 
         return userIM;
     }
 
 
     /**
-     * Define the link which one who can access
-     */
+     * @SecurityFilterChain => Define the link which one who can access.
+     **/
+
     @Bean
-    public SecurityFilterChain filterChain( HttpSecurity http ) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/").permitAll()
-                            .requestMatchers("/admin").hasRole("ADMIN")
-                            .anyRequest()
-                            .authenticated();
+                    auth.requestMatchers("/home").permitAll()  //Can access without login
+                            .requestMatchers("/user").hasRole("ADMIN")
+                            .requestMatchers("/admin").hasAnyRole("ADMIN", "USER")
+                            .anyRequest().authenticated();
                 })
                 .formLogin(Customizer.withDefaults());
         return http.build();
     }
-
-
-
-
 }

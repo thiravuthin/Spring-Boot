@@ -2,11 +2,16 @@ spring:
   output:
     ansi:
       enabled: always
+  ##### Database #####
   datasource:
     url: jdbc:postgresql://localhost:5432/SpringBoot
     password: vuthin
     username: postgres
-
+  ##### jpa #####
+  jpa:
+    hibernate:
+      ddl-auto: update
+  ###### send email #####
   mail:
     host: smtp.gmail.com
     username: thiravuthin@gmail.com
@@ -18,17 +23,6 @@ spring:
           starttls:
             enable: true
           auth: true
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-
-
-
-
-
-
-
 #  security:
 #    oauth2:
 #      client:

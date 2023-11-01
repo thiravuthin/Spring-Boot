@@ -1,4 +1,4 @@
-package com.example.springboot.security.security6.jwt.domain;
+package com.example.springboot.security.security_jwt.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,30 +10,43 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "USER_JWT")
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Users implements UserDetails {
+public class UserJwt implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(name = "USERNAME")
     private Long id;
 
-    private String firstname;
-    private String lastname;
+    private String firstName;
+
+    private String lastName;
+
     private String email;
+
+    @Column(name = "PASSWORD")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Role roles;
+    private Rols rols;
+    @Builder
+    public UserJwt(Long id, String firstName, String lastName, String email, String password, Rols rols) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.rols = rols;
+    }
 
+    /**
+     * @GrantedAuthority will return list of role
+     **/
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(roles.name()));
+        return List.of(new SimpleGrantedAuthority(rols.name()));
     }
 
     @Override
